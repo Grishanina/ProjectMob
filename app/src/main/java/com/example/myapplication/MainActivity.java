@@ -13,6 +13,7 @@ import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
 
+    // hhhh
     Connection connection;
     String ConnectionResult = "";
     @Override
