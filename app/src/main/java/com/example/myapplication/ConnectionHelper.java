@@ -11,6 +11,7 @@ import android.annotation.SuppressLint;
 
 public class ConnectionHelper {
 
+    //ggg
     private static String ip;
     private static String dataBase;
     private static String userPassword;
