@@ -7,13 +7,17 @@ import android.view.View;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.Statement;
+import java.util.List;
+import java.util.Map;
 
+import android.widget.ListView;
+import android.widget.SimpleAdapter;
 import android.widget.TextView;
 
 
 public class MainActivity extends AppCompatActivity {
 
-    // hhhh
+
     Connection connection;
     String ConnectionResult = "";
     @Override
@@ -22,41 +26,20 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
     }
 
-    public void GetTextFromSql(View v)
+    SimpleAdapter ad;
+    public void GetData(View v)
     {
-        TextView ID = findViewById(R.id.txtID);
-        TextView Title = findViewById(R.id.txtTitle);
-        TextView Author = findViewById(R.id.txtAuthor);
-        TextView Genre = findViewById(R.id.txtGenre);
-        TextView Publication_data = findViewById(R.id.txtPublication_data);
+        ListView lstview = (ListView) findViewById(R.id.listview);
 
+        List<Map<String,String>> MyDataList = null;
+        ListItem MyData = new ListItem();
+        MyDataList = MyData.getlist();
 
-        try {
-            ConnectionHelper connectionHelper = new ConnectionHelper();
-            connection = ConnectionHelper.connectionClass();
-
-            if(connection!=null) {
-                String query = "Select * From Library";
-                Statement statement = connection.createStatement();
-                ResultSet resultSet = statement.executeQuery(query);
-
-                while (resultSet.next()) {
-                    ID.setText(resultSet.getString(1));
-                    Title.setText(resultSet.getString(2));
-                    Author.setText(resultSet.getString(3));
-                    Genre.setText(resultSet.getString(4));
-                    Publication_data.setText(resultSet.getString(5));
-                }
-            }
-            else {
-                ConnectionResult = "Check Connection";
-            }
-
-        }
-        catch (Exception ex)
-        {
-
-
-        }
+        String[] Fromw = {"txtID", "txtTitle", "txtAuthor", "txtGenre", "txtPublication_data"};
+        int[] Tow = {R.id.txtID,R.id.txtTitle,R.id.txtAuthor,R.id.txtGenre,R.id.txtPublication_data};
+        ad = new SimpleAdapter(MainActivity.this,MyDataList,R.layout.listlayouttemplate,Fromw,Tow);
+        lstview.setAdapter(ad);
     }
+
+
 }
