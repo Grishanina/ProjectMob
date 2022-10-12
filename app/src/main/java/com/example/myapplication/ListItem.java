@@ -31,8 +31,7 @@ public class ListItem {
                     btname.put("txtID", resultSet.getString("ID"));
                     btname.put("txtTitle", resultSet.getString("Title"));
                     btname.put("txtAuthor", resultSet.getString("Author"));
-                    btname.put("txtGenre", resultSet.getString("Genre"));
-                    btname.put("txtPublication_data", resultSet.getString("Publication_data"));
+                    btname.put("txtGenre", resultSet.getString("Genre"));;
                     data.add(btname);
                 }
                 ConnectionResult = "Success";
