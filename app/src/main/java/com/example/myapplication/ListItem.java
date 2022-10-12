@@ -21,7 +21,7 @@ public class ListItem {
         data = new ArrayList<Map<String,String>>();
         try {
             ConnectionHelper connectionHelper = new ConnectionHelper();
-            connect = connectionHelper.conclass();
+            connect = connectionHelper.connectionClass();
             if(connect != null) {
                 String qu = "Select * From Library";
                 Statement statement = connect.createStatement();
@@ -42,6 +42,9 @@ public class ListItem {
             else{
                 ConnectionResult = "Failed";
             }
+
+
+
 
         }
         catch (SQLException throwables){

@@ -17,6 +17,7 @@ import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
 
+    ListView listView;
 
     Connection connection;
     String ConnectionResult = "";
@@ -29,8 +30,8 @@ public class MainActivity extends AppCompatActivity {
     SimpleAdapter ad;
     public void GetData(View v)
     {
-        ListView lstview = (ListView) findViewById(R.id.listview);
 
+        listView = findViewById(R.id.listview);
         List<Map<String,String>> MyDataList = null;
         ListItem MyData = new ListItem();
         MyDataList = MyData.getlist();
@@ -38,7 +39,7 @@ public class MainActivity extends AppCompatActivity {
         String[] Fromw = {"txtID", "txtTitle", "txtAuthor", "txtGenre", "txtPublication_data"};
         int[] Tow = {R.id.txtID,R.id.txtTitle,R.id.txtAuthor,R.id.txtGenre,R.id.txtPublication_data};
         ad = new SimpleAdapter(MainActivity.this,MyDataList,R.layout.listlayouttemplate,Fromw,Tow);
-        lstview.setAdapter(ad);
+        listView.setAdapter(ad);
     }
 
 
