@@ -44,8 +44,6 @@ public class ListItem {
             }
 
 
-
-
         }
         catch (SQLException throwables){
             throwables.printStackTrace();
