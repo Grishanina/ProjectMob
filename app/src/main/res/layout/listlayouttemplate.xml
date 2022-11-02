@@ -7,17 +7,29 @@
     android:layout_height="match_parent">
 
     <TextView
+        android:id="@+id/txtTitle"
+        android:layout_width="200dp"
+        android:layout_height="26dp"
+        android:layout_marginStart="28dp"
+        android:layout_marginLeft="28dp"
+        android:text="Название"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toEndOf="@+id/txtImage"
+        app:layout_constraintTop_toBottomOf="@+id/txtID"
+        tools:ignore="MissingConstraints" />
+
+    <TextView
         android:id="@+id/txtID"
-        android:layout_width="120dp"
+        android:layout_width="140dp"
         android:layout_height="22dp"
         android:layout_marginStart="28dp"
         android:layout_marginLeft="28dp"
-        android:layout_marginTop="16dp"
         android:text="Id"
         android:textSize="16sp"
-        app:layout_constraintStart_toEndOf="@+id/imageView2"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:ignore="MissingConstraints" />
+        app:layout_constraintStart_toEndOf="@+id/txtImage"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteY="16dp" />
 
     <TextView
         android:id="@+id/txtGenre"
@@ -27,7 +39,7 @@
         android:layout_marginLeft="28dp"
         android:text="Жанр"
         android:textSize="20sp"
-        app:layout_constraintStart_toEndOf="@+id/imageView2"
+        app:layout_constraintStart_toEndOf="@+id/txtImage"
         app:layout_constraintTop_toBottomOf="@+id/txtAuthor"
         tools:ignore="MissingConstraints" />
 
@@ -39,32 +51,20 @@
         android:layout_marginLeft="28dp"
         android:text="Автор"
         android:textSize="20sp"
-        app:layout_constraintStart_toEndOf="@+id/imageView2"
+        app:layout_constraintStart_toEndOf="@+id/txtImage"
         app:layout_constraintTop_toBottomOf="@+id/txtTitle"
         tools:ignore="MissingConstraints" />
 
-    <TextView
-        android:id="@+id/txtTitle"
-        android:layout_width="200dp"
-        android:layout_height="26dp"
-        android:layout_marginStart="28dp"
-        android:layout_marginLeft="28dp"
-        android:text="Название"
-        android:textSize="20sp"
-        android:textStyle="bold"
-        app:layout_constraintStart_toEndOf="@+id/imageView2"
-        app:layout_constraintTop_toBottomOf="@+id/txtID"
-        tools:ignore="MissingConstraints" />
-
     <ImageView
-        android:id="@+id/imageView2"
+        android:id="@+id/txtImage"
         android:layout_width="100dp"
         android:layout_height="100dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginLeft="16dp"
+        android:layout_marginStart="4dp"
+        android:layout_marginLeft="4dp"
+        android:layout_marginTop="16dp"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/ic_launcher_foreground"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteY="17dp" />
+        tools:ignore="MissingConstraints" />
 
 </android.support.constraint.ConstraintLayout>

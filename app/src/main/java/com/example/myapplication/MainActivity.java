@@ -5,7 +5,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 
-import android.content.Intent;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.Statement;
@@ -16,19 +15,21 @@ import android.widget.Button;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
 import android.widget.TextView;
+import android.widget.ScrollView;
 
 
 public class MainActivity extends AppCompatActivity {
 
     ListView listView;
-    Button btn2;
 
-    Connection connection;
-    String ConnectionResult = "";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+//        ScrollView scrollView = new ScrollView(this);
+//        scrollView.addView(listView);
+//        setContentView(scrollView);
     }
 
     SimpleAdapter ad;
@@ -40,26 +41,11 @@ public class MainActivity extends AppCompatActivity {
         ListItem MyData = new ListItem();
         MyDataList = MyData.getlist();
 
-        String[] Fromw = {"txtID", "txtTitle", "txtAuthor", "txtGenre", "txtPublication_data"};
-        int[] Tow = {R.id.txtID,R.id.txtTitle,R.id.txtAuthor,R.id.txtGenre};
+        String[] Fromw = {"txtID", "txtTitle", "txtAuthor", "txtGenre", "txtImage"};
+        int[] Tow = {R.id.txtID,R.id.txtTitle,R.id.txtAuthor,R.id.txtGenre, R.id.txtImage};
         ad = new SimpleAdapter(MainActivity.this,MyDataList,R.layout.listlayouttemplate,Fromw,Tow);
         listView.setAdapter(ad);
     }
 
-    public void OnClick(View v)
-    {
-        switch (v.getId())
-        {
-            case R.id.btn2:
-            Intent intent = new Intent();
-            intent.setClass(MainActivity.this, ActivityTwo.class);
-            startActivity(intent);
-                break;
-            default:
-                break;
-        }
-
-
-    }
 
 }

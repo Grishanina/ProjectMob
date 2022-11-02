@@ -1,5 +1,12 @@
 package com.example.myapplication;
 
+import android.content.Context;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.ListView;
+import android.widget.TextView;
+
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -17,11 +24,12 @@ public class ListItem {
 
     public List<Map<String,String>>getlist()
     {
-        List<Map<String,String>> data = null;
+        List<Map<String,String>> data;
         data = new ArrayList<Map<String,String>>();
+
         try {
             ConnectionHelper connectionHelper = new ConnectionHelper();
-            connect = connectionHelper.connectionClass();
+            connect = ConnectionHelper.connectionClass();
             if(connect != null) {
                 String qu = "Select * From Library";
                 Statement statement = connect.createStatement();
@@ -31,7 +39,8 @@ public class ListItem {
                     btname.put("txtID", resultSet.getString("ID"));
                     btname.put("txtTitle", resultSet.getString("Title"));
                     btname.put("txtAuthor", resultSet.getString("Author"));
-                    btname.put("txtGenre", resultSet.getString("Genre"));;
+                    btname.put("txtGenre", resultSet.getString("Genre"));
+                    btname.put("txtImage", resultSet.getString("Image"));
                     data.add(btname);
                 }
                 ConnectionResult = "Success";
